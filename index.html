@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=2.0, maximum-scale=2.0, user-scalable=no, orientation=portrait">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-principal: cyan;
+      --color-secundario: pink;
+      --color-acento: red;
+      --color-blanco: white; //texto y fondo
+
+      --header-size: 16vw;
+      font-family: "Roboto", "Arial";
+      font-size: 4vw;
+    }
+
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      height: var(--header-size);
+      background-color: var(--color-acento);
+      color: var(--color-blanco);
+      padding: calc(var(--header-size)*0.15);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 100%;
+      //padding: calc(var(--header-size)*0.15);
+      box-sizing: border-box;
+      background: white;
+    }
+
+    header .titulo {
+      color: var(--color-blanco);
+      font-family: "Arial";
+      font-size: calc(var(--header-size)*0.5);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+
+    header .menu-burger {
+      padding: calc(var(--header-size)*0.1);
+      height: 70%;
+      aspect-ratio: 1;
+      display: flex; //  none; //   /* non epara ocultar el burguer-menu */
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header .menu-burger span {
+      display: block;
+      width: 100%;
+      height: 15%; 
+      background: white;
+      border-radius: 10%;
+    }
+
+    header nav {
+      z-index: 1;
+      height: 100vh;
+      padding: 5vh 5vw;
+      position: fixed;
+      top: var(--header-size);
+      right: -60%;
+      width: 60%;
+      transition: right 0.2s ease-in-out;
+
+      border-radius: 5vw 0 0 0;
+      background-color: var(--color-acento);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: left;
+
+      ul li {
+        list-style: none;
+        margin-bottom: 2rem;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+    }
+
+    header nav.active {
+      right: 0;
+    }
+
+    main {
+      background-color: var(--color-secundario);
+      flex-grow: 1;
+      overflow: auto;
+      padding: 5%;
+    }
+
+    body button,
+    body input,
+    body label {
+      font-size: inherit;
+    }
+
+    .logform {
+      background-color: var(--color-blanco);
+      border: 1vw solid var(--color-acento);
+      border-radius: 3vw;
+      padding: 2% 30%;
+      text-allign: center;
+      color: var(--color-acento);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .espaciado {
+      gap: 3vw;
+    }
+
+    .logform label {
+      margin-bottom: 5px;
+    }
+
+    .logform select,
+    .logform input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 45px;
+      border: 2px solid var(--color-acento) !important;
+      ;
+      border-radius: 4px;
+      font-size: inherit;
+      background: inherit;
+    }
+
+    .logform button {
+      width: 100%;
+      padding: 15px;
+      background-color: var(--color-acento);
+      color: var(--color-blanco);
+
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .contenedor {
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .marco {
+      background-color: white; //var(--color-principal);
+      opacity: 90%;
+      border: 0.5vw solid var(--color-acento);
+      border-radius: 3vw;
+      padding: 4vw;
+      margin-bottom: 1vw;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .cuadro {
+      background-color: white; //var(--color-principal);
+      opacity: 90%;
+      border: 0.5vw solid var(--color-acento);
+      border-radius: 3vw;
+      margin-bottom: 1vw;
+      text-align: center;
+      box-sizing: border-box;
+
+      flex: 0 0 49.5%;
+      padding: 2vw;
+    }
+    
+    .cuadro :first-child {
+      margin: 0 0 1vw 0;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--color-acento);
+    }
+
+    .cuadro :nth-child(2) {
+      margin: 0 0 0 6vw;
+      font-size: 1.25rem;
+      font-weight: bold;
+      float: left;
+    }
+
+    .cuadro :last-child {
+      width: auto;
+      text-align: right;
+      float: right;
+      margin: 1vw 0 0 3vw;
+    }
+
+    footer {
+      height: calc(var(--header-size)*0.5);
+      background-color: var(--color-acento);
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: calc(var(--header-size)*0.2);
+      padding: calc(var(--header-size)*0.2);
+    }
+
+    .oculto {
+      display: none
+    }
+
+    .chiste {
+      margin: 4vw 0 4vw 0;
+      font-size: 4vw !important;
+    }
+
+    @media (min-width: 1000px) {}
+  </style>
+
+  <title>Demo</title>
+  <link rel="link icon " href="https://drive.google.com/thumbnail?id=1ZHf4M-QYMrxq15obeHGui5oLb-9cs4DX"
+    type="image/x-icon">
+
+</head>
+
+<body>
+  <header>
+    <img src='<?= logoUrl ?>' alt=''>
+    <div class="titulo" id="tituloGranja">GRANJA
+    </div>
+    <div class="menu-burger">
+      <span></span> <span></span> <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li onClick="closeMenu(); verLogForm()">SELECCIONAR GRANJA</li>
+        <li class=" <?= chistes ?>" onClick="closeMenu(); chiste()">CHISTE MALO</li>
+        <li onClick="closeMenu(); cambiarTema()">CAMBIAR TEMA</li>
+        <li onClick="closeMenu(); acercade()">ACERCA DE</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div>
+      <div id="elemento1"> </div>
+      <form id="logForm" class="logform " onsubmit="return false;">
+        <label for="granja">Granja:</label>
+        <input name="granja" id="granja" autocomplete="off">
+        <label for="cod">Contraseña:</label>
+        <input type="password" id="cod" placeholder="Ingrese su código" name="cod" autocomplete="off">
+        <button  type="button" onclick="cargarHTML()">VER DATOS</button>
+      </form>
+
+      <div style="display:none" id="selectGranja" class="logform espaciado oculto">
+        <button onclick="verLogForm()">SELECCIONAR GRANJA</button>
+        <button class=" <?= chistes ?> "onclick="chiste()">CHISTE MALO</button>
+        <button onclick="cambiarTema()">CAMBIAR TEMA</button>
+      </div>
+  </main>
+
+  <footer>
+    <p>Demo API Aveva Insight.</p>
+    <p id="nota"> </p>
+  </footer>
+
+  <script>
+    var webUrl= "https://script.google.com/macros/s/AKfycbyFy2bJtyPOmujuC7TiraZQPPpgCgSEV8TsBMGLuhkT3Zti7air1JmTQ2XxkFSiYNzA_g/exec"
+
+    const imgEsperaUrl="https://drive.google.com/thumbnail?id=14boOFBzVB9GCsZTdiATLFxrcKNHWmgV4"
+    const urlChiste="https://script.google.com/macros/s/AKfycbxm_JkOHZ8cqKHfg-8nDn9HtRySl1QiHuBpRWqSxSrzDn4Ezzx8wNkTx2LfsLE7wRVS/exec"
+    const temas=[ 
+      [ "#f8f4ff", "pink", "#CC0000", "white"  ],  //  1ario, 2ario, acento, blanco
+      [ "cyan", "cyan", "blue", "white"  ],
+      [ "cyan", "cyan", "green", "white"  ],
+    ]
+    window.onload=init()
+        
+    function init() {
+      var stGranjaCod=localStorage.getItem("granja")!=null?localStorage.getItem("granja"):"{}";
+      var granjaCod = JSON.parse(stGranjaCod)
+      document.getElementById("granja").value = granjaCod.granja
+      document.getElementById("cod").value = granjaCod.cod
+
+      var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
+      localStorage.setItem("tema",tema)
+      cambiarTema()
+
+      cargarHTML()
+      const devicePixelRatio = window.devicePixelRatio;
+      if (devicePixelRatio <= 2) {
+        const root = document.documentElement;
+        root.style.setProperty('--header-size', '6vw');
+        root.style.setProperty('font-size', '2vw');
+      }
+    }
+  
+    function info() {
+      const anchoPantalla = window.innerWidth;
+      const resPantalla = window.devicePixelRatio
+      document.getElementById("nota").textContent = " width: " + anchoPantalla + ", res: " + resPantalla;
+    }
+
+      async function cargarHTML() {
+      
+      document.getElementById("logForm").classList.add("oculto");
+      document.getElementById("elemento1").innerHTML = "<div style='text-allign:center; width=100%'><img  style='margin: 0 auto;  display: block;'  src='"+ imgEsperaUrl +"' alt='Recopilando datos'></div> <br><br>"
+
+      try {
+        
+        const formData= new FormData(document.getElementById("logForm"))
+        const granjaInput= document.getElementById("granja").value
+        const codInput= document.getElementById("cod").value
+
+        url = webUrl + "?file=bloque";
+
+        const response = await fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+
+      resp = await response.json()
+
+      if (resp.html == "NoAuth") {
+          document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS </div>"
+          document.getElementById("tituloGranja").innerHTML = "GRANJA";
+          document.getElementById("selectGranja").classList.remove("oculto");
+        } else {
+          document.getElementById("elemento1").innerHTML =resp.html
+          document.getElementById("tituloGranja").innerHTML =  granjaInput.toUpperCase() 
+          var valor = JSON.stringify({ granja: granjaInput, cod: codInput })
+          localStorage.setItem('granja', valor);
+          document.getElementById("logForm").classList.add("oculto");
+          document.getElementById("selectGranja").classList.remove("oculto");
+        }
+      } catch (error) {
+        document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
+        document.getElementById("elemento1").innerHTML = error
+        document.getElementById("tituloGranja").innerHTML = "GRANJA";
+        document.getElementById("selectGranja").classList.remove("oculto");
+      }  
+    }
+
+    function verLogForm(){
+        document.getElementById("logForm").classList.remove("oculto");
+        document.getElementById("selectGranja").classList.add("oculto");
+    }
+
+    async function chiste(){ 
+        const url="https://script.google.com/macros/s/AKfycbxm_JkOHZ8cqKHfg-8nDn9HtRySl1QiHuBpRWqSxSrzDn4Ezzx8wNkTx2LfsLE7wRVS/exec"
+        const elem1 = document.getElementById("elemento1") 
+        const elemTitulo=document.getElementById("tituloGranja")
+
+        elem1.innerHTML = "<div style='text-allign:center; width=100%'><img  style='margin: 0 auto;  display: block;'  src='https://drive.google.com/thumbnail?id=14boOFBzVB9GCsZTdiATLFxrcKNHWmgV4' alt=''></div> <br><br>"
+
+        fetch(url) 
+          .then (response=>{ return response.text()})
+          .then (data=>{
+              elem1.innerHTML= "<div class='marco chiste'>" + data + "</div>";
+              elemTitulo.innerHTML="CHISTE MALO";
+          })
+    }
+
+    function acercade(){ 
+        const elem1 = document.getElementById("elemento1") 
+        const elemTitulo=document.getElementById("tituloGranja")
+
+        elem1.innerHTML = "<div class='marco'><h3>Demo conexión datos AVEVA INSIGHT</h3><p>Realizada por OscarHR con Google Apps Script.</p><p>04/01/2025</p></div> <br><br>"
+    }
+
+    function cambiarTema() {
+            var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema")):10;
+            tema = tema < (temas.length-1) ? tema+1:0;
+            localStorage.setItem("tema",tema);
+            const root = document.documentElement;
+            root.style.setProperty('--color-primario', temas[tema][0]);
+            root.style.setProperty('--color-secundario', temas[tema][1]);
+            root.style.setProperty('--color-acento',temas[tema][2]);
+    }
+
+    const menuButton = document.querySelector('.menu-burger');
+    const menu = document.querySelector('nav');
+    menuButton.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('nav') && !event.target.closest('.menu-burger')) {
+        menu.classList.remove('active');
+      };
+    });
+    function closeMenu(){ document.querySelector('nav').classList.remove('active')     }
+  </script>
+</body>
+
+</html>
