@@ -1,14 +1,14 @@
 {
   "name": "Consumos Pienso",
   "short_name": "Piensos",
-  "start_url": "https://oscherrero.github.io/demoweb",
+  "start_url": "/demoweb",
   "display": "fullscreen",  
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "https://premierpigs.com/wp-content/uploads/2018/05/logo-grande.png",
-      "sizes": "192x192",
+      "src": "/demoweb/pp_logo_312x192.png",
+      "sizes": "312x192",
       "type": "image/png"
     },     
 
