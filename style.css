@@ -23,7 +23,6 @@
 
     header {
       height: var(--header-size);
-      width: 30vw;
       background-color: var(--color-acento);
       color: var(--color-blanco);
       padding: calc(var(--header-size)*0.15);
