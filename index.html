@@ -32,6 +32,7 @@
   <main>
     <div>
       <div id="elemento1"> </div>
+      <div id="elemento2"> </div>
       <form id="logForm" class="logform " onsubmit="return false;">
         <label for="granja">Granja:</label>
         <input name="granja" id="granja" autocomplete="off">
@@ -94,6 +95,7 @@
       document.getElementById("logForm").classList.add("oculto");
       document.getElementById("elemento1").innerHTML = "<div style='text-allign:center; width=100%'><img  style='margin: 0 auto;  display: block;'  src='"+ imgEsperaUrl +"' alt='Recopilando datos'></div> <br><br>"
 
+
       try {
         
         const formData= new FormData(document.getElementById("logForm"))
@@ -106,6 +108,7 @@
             method: 'POST',
             body: formData,
         })
+        document.getElementById("elemento2").innerHTML = "<div style='text-allign:center; width=100%'>"+formData.granja+"/"+ formData.cod +"</div> <br>"
 
       resp = await response.json()
 
