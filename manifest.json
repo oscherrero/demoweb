@@ -11,6 +11,10 @@
       "sizes": "312x192",
       "type": "image/png"
     },     
-
+    {
+      "src": "/demoweb/pp_logo_192x118.png",
+      "sizes": "192x118",
+      "type": "image/png"
+    },   
   ]
 }
