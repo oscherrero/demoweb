@@ -1,0 +1,16 @@
+{
+  "name": "Consumos Pienso",
+  "short_name": "Piensos",
+  "start_url": "https://oscherrero.github.io/demoweb",
+  "display": "fullscreen",  
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://oscherrero.github.io/test/se_logo_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },     
+
+  ]
+}
