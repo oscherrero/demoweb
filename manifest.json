@@ -1,7 +1,7 @@
 {
   "name": "Consumos Pienso",
   "short_name": "Piensos",
-  "start_url": "/demoweb",
+  "start_url": "https://oscherrero.github.io/demoweb",
   "display": "fullscreen",  
   "theme_color": "#000000",
   "background_color": "#ffffff",
