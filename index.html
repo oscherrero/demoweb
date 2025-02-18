@@ -20,32 +20,9 @@
     <div class="menu-burger">
       <span></span> <span></span> <span></span>
     </div>
-    <nav>
-      <ul>
-        <li onClick="closeMenu(); verLogForm()">SELECCIONAR GRANJA</li>
-        <li class=" <?= chistes ?>" onClick="closeMenu(); chiste()">CHISTE MALO</li>
-        <li onClick="closeMenu(); cambiarTema()">CAMBIAR TEMA</li>
-        <li onClick="closeMenu(); acercade()">ACERCA DE</li>
-      </ul>
-    </nav>
   </header>
 
   <main>
-    <div>
-      <div id="elemento1"> </div>
-      <form id="logForm" class="logform " onsubmit="return false;">
-        <label for="granja">Granja:</label>
-        <input name="granja" id="granja" autocomplete="off">
-        <label for="cod">Contraseña:</label>
-        <input type="password" id="cod" placeholder="Ingrese su código" name="cod" autocomplete="off">
-        <button  type="button" onclick="cargarHTML()">VER DATOS</button>
-      </form>
-
-      <div style="display:none" id="selectGranja" class="logform espaciado oculto">
-        <button onclick="verLogForm()">SELECCIONAR GRANJA</button>
-        <button class=" <?= chistes ?> "onclick="chiste()">CHISTE MALO</button>
-        <button onclick="cambiarTema()">CAMBIAR TEMA</button>
-      </div>
   </main>
 
   <footer>
