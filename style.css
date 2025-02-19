@@ -165,7 +165,7 @@
     }
 
     .marco {
-      background-color: white; //var(--color-principal);
+      background-color: white; 
       opacity: 90%;
       border: 0.5vw solid var(--color-acento);
       border-radius: 3vw;
@@ -176,7 +176,7 @@
     }
 
     .cuadro {
-      background-color: white; //var(--color-principal);
+      background-color: white; 
       opacity: 90%;
       border: 0.5vw solid var(--color-acento);
       border-radius: 3vw;
