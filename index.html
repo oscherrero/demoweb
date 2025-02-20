@@ -34,7 +34,7 @@
       <div id="elemento1"> </div>
       <form id="logForm" class="logform " onsubmit="return false;">
         <label for="granja">Granja:</label>
-        <input name="granja" id="granja" placeholder="Indica granja" autocomplete="off"> 
+        <select name="granja" id="granja" placeholder="Indica granja" autocomplete="off"> </select>
         <label for="cod">Contraseña:</label>
         <input name="cod"  id="cod" placeholder="aquí el código"  type="password" placeholder="Ingrese su código"  autocomplete="off">
         <button  type="button" onclick="cargarHTML()">VER DATOS</button>
@@ -109,14 +109,12 @@
             body: formData,
         })
 
-       /* urlX = webHook + "?file=bloque";
-        const responseX = await fetch(urlX, {
-            method: 'POST',
-            body: formData,
-        })*/
-
+      
+      document.getElementById("granja").innerHTML = localStorage.getItem("options")
       resp = await response.json()
 
+      localStorage.setItem("options",resp.optionsHtml)
+        
       if (resp.html == "NoAuth") {
           document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS </div>"
           document.getElementById("tituloGranja").innerHTML = "GRANJA";
