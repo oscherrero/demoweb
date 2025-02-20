@@ -128,6 +128,8 @@
           localStorage.setItem('granja', valor);
           document.getElementById("logForm").classList.add("oculto");
           document.getElementById("selectGranja").classList.remove("oculto");
+
+          localStorage.setItem("options",resp.optionsHtml)
         }
       } catch (error) {
         document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
