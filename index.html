@@ -67,13 +67,13 @@
     window.onload=init()
         
     function init() {
-      var stGranjaCod=localStorage.getItem("granja")!=null?localStorage.getItem("granja"):"{}";
+      var stGranjaCod=localStorage.getItem("granja")!=null?localStorage.getItem("granja"):"{granja='',cod:''}";
       var granjaCod = JSON.parse(stGranjaCod)
       document.getElementById("granja").value = granjaCod.granja
       document.getElementById("cod").value = granjaCod.cod
-
+      document.getElementById("elemento2").value = granjaCod.stGranjaCod
       
-     /* var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
+      var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
       localStorage.setItem("tema",tema)
       cambiarTema()
 
@@ -85,7 +85,7 @@
         root.style.setProperty('font-size', '2vw');
       }
 
-      */
+      
     }
   
     function info() {
@@ -94,7 +94,7 @@
       document.getElementById("nota").textContent = " width: " + anchoPantalla + ", res: " + resPantalla;
     }
 
-      async function cargarHTML() {
+    async function cargarHTML() {
       
       document.getElementById("logForm").classList.add("oculto");
       document.getElementById("elemento1").innerHTML = "<div style='text-allign:center; width=100%'><img  style='margin: 0 auto;  display: block;'  src='"+ imgEsperaUrl +"' alt='Recopilando datos'></div> <br><br>"
