@@ -103,18 +103,22 @@
         const granjaInput= document.getElementById("granja").value
         const codInput= document.getElementById("cod").value
 
-
-        urlX = webHook + "?file=bloque";
-        const responseX = await fetch(urlX, {
-            method: 'POST',
-            body: formData,
-        })
-
-        url = webUrl + "?file=bloque";
+       url = webUrl + "?file=bloque";
         const response = await fetch(url, {
             method: 'POST',
             body: formData,
         })
+
+        urlX = webHook + "?file=bloque";
+        const responseX = await fetch(urlX, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Importante para JSON
+                },
+            body: JSON.stringify(formData) // Para enviar JSON
+        })
+
+
 
       resp = await response.json()
 
