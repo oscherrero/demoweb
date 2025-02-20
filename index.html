@@ -66,6 +66,8 @@
     window.onload=init()
         
     function init() {
+      var options =localStorage.getItem("options")
+      document.getElementById("granja").innerHTML = options
       var stGranjaCod = localStorage.getItem("granja") != null ? localStorage.getItem("granja") : '{"granja":"","cod":""}';
       var granjaCod = JSON.parse(stGranjaCod)
       document.getElementById("granja").value = granjaCod.granja
@@ -109,10 +111,7 @@
             body: formData,
         })
 
-      var options =localStorage.getItem("options")
-      document.getElementById("granja").innerHTML = options
       var resp = await response.json()
-
       localStorage.setItem("options",resp.optionsHtml)
         
       if (resp.html == "NoAuth") {
