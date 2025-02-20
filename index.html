@@ -111,7 +111,7 @@
 
       var options =localStorage.getItem("options")
       document.getElementById("granja").innerHTML = options
-      resp = await response.json()
+      var resp = await response.json()
 
       localStorage.setItem("options",resp.optionsHtml)
         
