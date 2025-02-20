@@ -92,7 +92,8 @@
     }
 
     async function cargarHTML() {
-      
+
+      document.getElementById("elemento1").classList.remove("oculto");
       document.getElementById("logForm").classList.add("oculto");
       document.getElementById("elemento1").innerHTML = "<div style='text-allign:center; width=100%'><img  style='margin: 0 auto;  display: block;'  src='"+ imgEsperaUrl +"' alt='Recopilando datos'></div> <br><br>"
         
@@ -117,12 +118,10 @@
       resp = await response.json()
 
       if (resp.html == "NoAuth") {
-          document.getElementById("elemento1").classList.remove("oculto");
           document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS </div>"
           document.getElementById("tituloGranja").innerHTML = "GRANJA";
           document.getElementById("selectGranja").classList.remove("oculto");
         } else {
-          document.getElementById("elemento1").classList.remove("oculto");
           document.getElementById("elemento1").innerHTML =resp.html
           document.getElementById("tituloGranja").innerHTML =  granjaInput.toUpperCase() 
           var valor = JSON.stringify({ granja: granjaInput, cod: codInput })
