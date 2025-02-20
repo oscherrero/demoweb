@@ -67,7 +67,7 @@
     window.onload=init()
         
     function init() {
-      var stGranjaCod=localStorage.getItem("granja")!=null?localStorage.getItem("granja"):"{granja='',cod:''}";
+      var stGranjaCod=localStorage.getItem("granja")!=null?localStorage.getItem("granja"):"{'granja':'','cod'=''}";
       var granjaCod = JSON.parse(stGranjaCod)
       document.getElementById("granja").value = granjaCod.granja
       document.getElementById("cod").value = granjaCod.cod
