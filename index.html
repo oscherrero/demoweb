@@ -70,7 +70,7 @@
       var granjaCod = JSON.parse(stGranjaCod)
       document.getElementById("granja").value = granjaCod.granja
       document.getElementById("cod").value = granjaCod.cod
-      
+
       var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
       localStorage.setItem("tema",tema)
       cambiarTema()
@@ -109,8 +109,8 @@
             body: formData,
         })
 
-      
-      document.getElementById("granja").innerHTML = localStorage.getItem("options")
+      var options =localStorage.getItem("options")
+      document.getElementById("granja").innerHTML = options
       resp = await response.json()
 
       localStorage.setItem("options",resp.optionsHtml)
