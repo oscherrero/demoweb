@@ -72,7 +72,8 @@
       document.getElementById("granja").value = granjaCod.granja
       document.getElementById("cod").value = granjaCod.cod
 
-      var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
+      
+     /* var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
       localStorage.setItem("tema",tema)
       cambiarTema()
 
@@ -83,6 +84,8 @@
         root.style.setProperty('--header-size', '6vw');
         root.style.setProperty('font-size', '2vw');
       }
+
+      */
     }
   
     function info() {
@@ -95,8 +98,7 @@
       
       document.getElementById("logForm").classList.add("oculto");
       document.getElementById("elemento1").innerHTML = "<div style='text-allign:center; width=100%'><img  style='margin: 0 auto;  display: block;'  src='"+ imgEsperaUrl +"' alt='Recopilando datos'></div> <br><br>"
-
-
+        
       try {
         
         const formData= new FormData(document.getElementById("logForm"))
@@ -112,10 +114,7 @@
         urlX = webHook + "?file=bloque";
         const responseX = await fetch(urlX, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json' // Importante para JSON
-                },
-            body: JSON.stringify(formData) // Para enviar JSON
+            body: formData,
         })
 
 
