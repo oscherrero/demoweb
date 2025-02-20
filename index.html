@@ -32,7 +32,6 @@
   <main>
     <div>
       <div id="elemento1"> </div>
-      <div id="elemento2">xx </div>
       <form id="logForm" class="logform " onsubmit="return false;">
         <label for="granja">Granja:</label>
         <input name="granja" id="granja" placeholder="Indica granja" autocomplete="off">
@@ -71,7 +70,6 @@
       var granjaCod = JSON.parse(stGranjaCod)
       document.getElementById("granja").value = granjaCod.granja
       document.getElementById("cod").value = granjaCod.cod
-      document.getElementById("elemento2").value = stGranjaCod
       
       var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
       localStorage.setItem("tema",tema)
