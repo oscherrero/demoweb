@@ -71,7 +71,7 @@
       var granjaCod = JSON.parse(stGranjaCod)
       document.getElementById("granja").value = granjaCod.granja
       document.getElementById("cod").value = granjaCod.cod
-      document.getElementById("elemento2").value = granjaCod.stGranjaCod
+      document.getElementById("elemento2").value = stGranjaCod
       
       var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
       localStorage.setItem("tema",tema)
