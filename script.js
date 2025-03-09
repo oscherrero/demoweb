@@ -65,7 +65,7 @@ async function cargarHTML() {
       document.getElementById("cod").value =""
       document.getElementById("logForm").classList.remove("oculto");
     } else   if ( resp.html == "") {
-      document.getElementById("tituloGranja").innerHTML = "PREMIER PIGS";
+      document.getElementById("tituloGranja").innerHTML = "DEMO API INDIGHT";
       document.getElementById("cod").value =""
       verLogForm()
     } else {     
