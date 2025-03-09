@@ -61,11 +61,11 @@ async function cargarHTML() {
 
   if (resp.html == "NoAuth" ) {
       document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS <br></div>"
-      document.getElementById("tituloGranja").innerHTML = "PREMIER PIGS";
+      document.getElementById("tituloGranja").innerHTML = "DEMO API INSIGHT";
       document.getElementById("cod").value =""
       document.getElementById("logForm").classList.remove("oculto");
     } else   if ( resp.html == "") {
-      document.getElementById("tituloGranja").innerHTML = "DEMO API INDIGHT";
+      document.getElementById("tituloGranja").innerHTML = "DEMO API INSIGHT";
       document.getElementById("cod").value =""
       verLogForm()
     } else {     
@@ -80,7 +80,7 @@ async function cargarHTML() {
   } catch (error) {
     document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
     document.getElementById("elemento1").innerHTML = error
-    document.getElementById("tituloGranja").innerHTML = "PREMIER PIGS";
+    document.getElementById("tituloGranja").innerHTML = "DEMO API INSIGHT";
 
   }  
 }
