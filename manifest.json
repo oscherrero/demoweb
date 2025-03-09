@@ -1,23 +1,23 @@
 {
   "name": "Consumos Pienso",
   "short_name": "Piensos",
-  "start_url": "/demopp_2",
+  "start_url": "/demoweb",
   "display": "fullscreen",  
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/demopp_2/pp_logo_192x192.png",
+      "src": "/demoweb/pp_logo_192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },      
     {
-      "src": "/demopp_2/pp_logo_312x192.png",
+      "src": "/demoweb/pp_logo_312x192.png",
       "sizes": "312x192",
       "type": "image/png"
     },     
     {
-      "src": "/demopp_2/pp_logo_192x118.png",
+      "src": "/demoweb/pp_logo_192x118.png",
       "sizes": "192x118",
       "type": "image/png"
     }   
