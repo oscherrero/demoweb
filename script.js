@@ -1,6 +1,6 @@
 
 const webUrl= "https://script.google.com/macros/s/AKfycbyS5L58pIm7EUGNtslScWblYXTPTDKi1eu7f7CukD4rXPZZ4jBhZaQCKGIPA2Y-95HX/exec"   
-const imgEsperaUrl="/demopp_2/SimboloEspera.gif"
+const imgEsperaUrl="/demoweb/SimboloEspera.gif"
 const urlChiste="https://script.google.com/macros/s/AKfycbxtGofgvSOkwx7T7pwzHrzXA59swnf8DAY_2xNrySYdDFaHTds_8jOVtX1HS1tiEcoM/exec"
 const temas=[ 
   [ "#f8f4ff", "pink", "#CC0000", "white"  ],  //  1ario, 2ario, acento, blanco
