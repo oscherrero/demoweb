@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.3, user-scalable=no, orientation=portrait">
+  <title>Demo</title>
+  <link rel="manifest" href="/demopp_2/manifest.json">
+  <link rel="stylesheet" href="/demopp_2/style.css">
+  <link rel="link icon " href="/demopp_2/pp_logo_312x192.png" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <img src='/demopp_2/pp_logo_312x192.png' alt=''>
+    <div class="titulo" id="tituloGranja">PREMIER PIGS</div>
+    <div class="menu-burger">
+      <span></span> <span></span> <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li onClick="closeMenu(); verLogForm()">SELECCIONAR GRANJA</li>
+        <li onClick="closeMenu(); cambiarTema()">CAMBIAR TEMA</li>
+        <li onClick="closeMenu(); recargarWeb()">ACTUALIZAR DATOS</li>
+        <li onClick="closeMenu(); chiste()" class="oculto_NO" >CHISTE MALO</li>
+        <li onClick="closeMenu(); acercade()">ACERCA DE</li>
+        <li >...</li> 
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div>
+      <div id="elemento1"> </div>
+      <form id="logForm" class="logform " onsubmit="return false;">
+        <label for="granja">Granja:</label>
+        <select name="granja" id="granja" placeholder="Granja" autocomplete="off"> </select>
+        <label for="cod">Contraseña:</label>
+        <input name="cod"  id="cod" placeholder="Contraseña"  type="password" placeholder="Ingrese su código"  autocomplete="off">
+        <button  type="button" onclick="cargarHTML()">VER DATOS</button>
+      </form>
+  </main>
+
+  <footer>
+    <p>Demo API Aveva Insight. git.</p>
+    <p id="nota"> </p>
+  </footer>
+
+  <script src="script.js"></script>
+ 
+</body>
+
+</html>
