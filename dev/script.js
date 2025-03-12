@@ -133,6 +133,9 @@ function cambiarTema() {
 
 const menuButton = document.querySelector('.menu-burger');
 const menu = document.querySelector('nav');
+
+function closeMenu(){ document.querySelector('nav').classList.remove('active')     }
+
 menuButton.addEventListener('click', () => {
   menu.classList.toggle('active');
 });
@@ -142,6 +145,11 @@ document.addEventListener('click', (event) => {
     menu.classList.remove('active');
   };
 });
-function closeMenu(){ document.querySelector('nav').classList.remove('active')     }
 
+document.getElementById('verDatos').addEventListener('click', function() {
+  cargarHTML('bloque');
+});
 
+document.getElementById('verGraf').addEventListener('click', function() {
+  cargarHTML('bloqueChart');
+});
