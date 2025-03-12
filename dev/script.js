@@ -50,7 +50,7 @@ async function cargarHTML(file) {
     const granjaInput= document.getElementById("granja").value
     const codInput= document.getElementById("cod").value
 
-   url = webUrl + "?file="+file;
+    var url = webUrl + "?file="+file;
     const response = await fetch(url, {
         method: 'POST',
         body: formData,
