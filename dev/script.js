@@ -40,7 +40,6 @@ function info() {
 
 async function cargarHTML(file) {
 
-  file="bloque"
   document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("logForm").classList.add("oculto");
   document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + imgEsperaUrl + "'></div> <br><br>"
