@@ -38,8 +38,9 @@ function info() {
   document.getElementById("nota").textContent = " width: " + anchoPantalla + ", res: " + resPantalla;
 }
 
-async function cargarHTML() {
+async function cargarHTML(file) {
 
+  file="bloque"
   document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("logForm").classList.add("oculto");
   document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + imgEsperaUrl + "'></div> <br><br>"
@@ -50,7 +51,7 @@ async function cargarHTML() {
     const granjaInput= document.getElementById("granja").value
     const codInput= document.getElementById("cod").value
 
-   url = webUrl + "?file=bloque";
+   url = webUrl + "?file="+file;
     const response = await fetch(url, {
         method: 'POST',
         body: formData,
