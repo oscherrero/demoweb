@@ -9,7 +9,7 @@ const temas=[
 ]
 
 window.onload=init()
-    
+
 function cargarListaGranjas(options){
   document.getElementById("granja").innerHTML = options
   var stGranjaCod = localStorage.getItem("granja") != null ? localStorage.getItem("granja") : '{"granja":"","cod":""}';
