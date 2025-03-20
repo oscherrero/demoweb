@@ -10,14 +10,6 @@ const temas=[
 
 window.onload=init()
 
-function cargarListaGranjas(options){
-  document.getElementById("granja").innerHTML = options
-  var stGranjaCod = localStorage.getItem("granja") != null ? localStorage.getItem("granja") : '{"granja":"","cod":""}';
-  var granjaCod = JSON.parse(stGranjaCod)
-  document.getElementById("granja").value = granjaCod.granja
-  document.getElementById("cod").value = granjaCod.cod
-}
-   
 function init() {
   var options =localStorage.getItem("options")
   
@@ -30,6 +22,14 @@ function init() {
 
 }
 
+function cargarListaGranjas(options){
+  document.getElementById("granja").innerHTML = options
+  var stGranjaCod = localStorage.getItem("granja") != null ? localStorage.getItem("granja") : '{"granja":"","cod":""}';
+  var granjaCod = JSON.parse(stGranjaCod)
+  document.getElementById("granja").value = granjaCod.granja
+  document.getElementById("cod").value = granjaCod.cod
+}
+   
 function recargarWeb (){  location.href = location.href + "?" + new Date().getTime();}
 
 function info() {
