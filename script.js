@@ -98,6 +98,8 @@ function verLogForm(){
 }
 
 async function chiste(){ 
+
+  document.getElementById("logForm").classList.add("oculto");
   const elem1 = document.getElementById("elemento1") 
   const elemTitulo=document.getElementById("tituloGranja")
 
