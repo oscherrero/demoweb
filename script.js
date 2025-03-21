@@ -61,16 +61,16 @@ async function cargarHTML(file) {
 
   if (resp.html == "NoAuth" ) {
       document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS <br></div>"
-      document.getElementById("tituloGranja").innerHTML = "DEMO API INSIGHT";
+      document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
       document.getElementById("cod").value =""
       document.getElementById("logForm").classList.remove("oculto");
     } else   if ( resp.html == "") {
-      document.getElementById("tituloGranja").innerHTML = "DEMO API INSIGHT";
+      document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
       document.getElementById("cod").value =""
       verLogForm()
     } else {     
       document.getElementById("elemento1").innerHTML = resp.html
-      document.getElementById("tituloGranja").innerHTML =  granjaInput.toUpperCase() 
+      document.getElementById("tituloSite").innerHTML =  granjaInput.toUpperCase() 
       document.getElementById("logForm").classList.add("oculto");
     
       var valor = JSON.stringify({ granja: granjaInput, cod: codInput })
@@ -80,7 +80,7 @@ async function cargarHTML(file) {
   } catch (error) {
     document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
     document.getElementById("elemento1").innerHTML = error
-    document.getElementById("tituloGranja").innerHTML = "DEMO API INSIGHT";
+    document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
 
   }  
 }
@@ -101,7 +101,7 @@ async function chiste(){
 
   document.getElementById("logForm").classList.add("oculto");
   const elem1 = document.getElementById("elemento1") 
-  const elemTitulo=document.getElementById("tituloGranja")
+  const elemTitulo=document.getElementById("tituloSite")
 
   elem1.classList.remove("oculto");
   elem1.innerHTML = "<div class='imagenEspera'><img  src='" + imgEsperaUrl + "'></div> <br><br>"
