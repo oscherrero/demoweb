@@ -23,10 +23,10 @@ function init() {
 }
 
 function cargarListaGranjas(options){
-  document.getElementById("granja").innerHTML = options
-  var stGranjaCod = localStorage.getItem("granja") != null ? localStorage.getItem("granja") : '{"granja":"","cod":""}';
+  document.getElementById("site").innerHTML = options
+  var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
   var granjaCod = JSON.parse(stGranjaCod)
-  document.getElementById("granja").value = granjaCod.granja
+  document.getElementById("site").value = granjaCod.site
   document.getElementById("cod").value = granjaCod.cod
 }
    
@@ -47,7 +47,7 @@ async function cargarHTML(file) {
   try {
     
     const formData= new FormData(document.getElementById("logForm"))
-    const granjaInput= document.getElementById("granja").value
+    const granjaInput= document.getElementById("site").value
     const codInput= document.getElementById("cod").value
 
     var url = webUrl + "?file="+file;
@@ -73,8 +73,8 @@ async function cargarHTML(file) {
       document.getElementById("tituloSite").innerHTML =  granjaInput.toUpperCase() 
       document.getElementById("logForm").classList.add("oculto");
     
-      var valor = JSON.stringify({ granja: granjaInput, cod: codInput })
-      localStorage.setItem('granja', valor);
+      var valor = JSON.stringify({ site: granjaInput, cod: codInput })
+      localStorage.setItem('site', valor);
       localStorage.setItem("options",resp.optionsHtml)
     }
   } catch (error) {
@@ -86,9 +86,9 @@ async function cargarHTML(file) {
 }
 
 function recuperarListaGranjas(){
-  var stGranjaCod = localStorage.getItem("granja") != null ? localStorage.getItem("granja") : '{"granja":"","cod":""}';
+  var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
   var granjaCod = JSON.parse(stGranjaCod)
-  document.getElementById("granja").value = granjaCod.granja
+  document.getElementById("site").value = granjaCod.site
   document.getElementById("cod").value = granjaCod.cod
 }
 
