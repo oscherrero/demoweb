@@ -84,13 +84,13 @@ async function cargarHTML(file) {
 
   }  
 }
-
+/*
 function recuperarListaGranjas(){
   var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
   var granjaCod = JSON.parse(stGranjaCod)
   document.getElementById("site").value = granjaCod.site
   document.getElementById("cod").value = granjaCod.cod
-}
+}*/
 
 function verLogForm(){
   document.getElementById("logForm").classList.remove("oculto");
