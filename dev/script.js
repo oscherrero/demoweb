@@ -137,7 +137,7 @@ function aplicarTema(incrementar) {
   if (incrementar) {
     tema=tema+1
   }
-  tema = tema < TEMAS.length? tema:0;
+  tema = tema < TEMAS.length & tema<0  ? tema:0;
   localStorage.setItem(APP+"tema",tema);
   const root = document.documentElement;
   root.style.setProperty('--color-primario', TEMAS[tema][0]);
