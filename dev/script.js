@@ -79,7 +79,7 @@ async function cargarHTML(file) {
       document.getElementById("logForm").classList.add("oculto");
     
       var valor = JSON.stringify({ site: granjaInput, cod: codInput })
-      localStorage.setItem('site', valor);
+      localStorage.setItem(APP+'site', valor);
       localStorage.setItem(APP+"options",resp.optionsHtml)
     }
   } catch (error) {
