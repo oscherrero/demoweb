@@ -1,30 +1,29 @@
 
-const webUrl= "https://script.google.com/macros/s/AKfycbwFh4fhZPolS9zN0uGwCouteG9PcSjLkJqRdyABj3XZ-6A5b5LEic9QIb_BebPoUBXnPA/exec"   
-const imgEsperaUrl="/demoweb/SimboloEspera.gif"
-const urlChiste="https://script.google.com/macros/s/AKfycbxtGofgvSOkwx7T7pwzHrzXA59swnf8DAY_2xNrySYdDFaHTds_8jOVtX1HS1tiEcoM/exec"
-const temas=[ 
+const GAS_WEB_URL= "https://script.google.com/macros/s/AKfycbwFh4fhZPolS9zN0uGwCouteG9PcSjLkJqRdyABj3XZ-6A5b5LEic9QIb_BebPoUBXnPA/exec"   
+const IMG_ESPERA_URL="/demoweb/SimboloEspera.gif"
+const GAS_CHISTES_URL="https://script.google.com/macros/s/AKfycbxtGofgvSOkwx7T7pwzHrzXA59swnf8DAY_2xNrySYdDFaHTds_8jOVtX1HS1tiEcoM/exec"
+const TEMAS=[ 
   [ "#f8f4ff", "pink", "#CC0000", "white"  ],  //  1ario, 2ario, acento, blanco
   [ "cyan", "cyan", "blue", "white"  ],
   [ "cyan", "cyan", "green", "white"  ],
 ]
+let PATH=window.location.href 
+if (PATH.endsWith("/")) {   PATH = PATH.slice(0, -1);}
+const APP=PATH.substring(PATH.lastIndexOf("/")+1,99)
+const NUMTEMAS=TEMAS.length
 
 window.onload=init()
 
 function init() {
-  var options =localStorage.getItem("options")
-  
+  var options =localStorage.getItem(APP+"options")
   cargarListaGranjas(options)
-
-  var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
-  localStorage.setItem("tema",tema)
-  cambiarTema()
+  aplicarTema()
   cargarHTML('bloque' )
-     
 }
 
 function cargarListaGranjas(options){
   document.getElementById("site").innerHTML = options
-  var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
+  var stGranjaCod = localStorage.getItem(APP+"site") != null ? localStorage.getItem(APP+"site") : '{"site":"","cod":""}';
   var granjaCod = JSON.parse(stGranjaCod)
   document.getElementById("site").value = granjaCod.site
   document.getElementById("cod").value = granjaCod.cod
@@ -42,7 +41,7 @@ async function cargarHTML(file) {
    
   document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("logForm").classList.add("oculto");
-  document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + imgEsperaUrl + "'></div> <br><br>"
+  document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
  
   try {
     
@@ -50,8 +49,8 @@ async function cargarHTML(file) {
     const granjaInput= document.getElementById("site").value
     const codInput= document.getElementById("cod").value
 
-    var url = webUrl + "?file="+file;
-    const response = await fetch(url, {
+    //var url = webUrl + "?file="+file;
+    const response = await fetch(GAS_WEB_URL, {
         method: 'POST',
         body: formData,
     })
@@ -74,8 +73,8 @@ async function cargarHTML(file) {
       document.getElementById("logForm").classList.add("oculto");
     
       var valor = JSON.stringify({ site: granjaInput, cod: codInput })
-      localStorage.setItem('site', valor);
-      localStorage.setItem("options",resp.optionsHtml)
+      localStorage.setItem(APP+'site', valor);
+      localStorage.setItem(APP+"options",resp.optionsHtml)
     }
   } catch (error) {
     document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
@@ -84,13 +83,6 @@ async function cargarHTML(file) {
 
   }  
 }
-/*
-function recuperarListaGranjas(){
-  var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
-  var granjaCod = JSON.parse(stGranjaCod)
-  document.getElementById("site").value = granjaCod.site
-  document.getElementById("cod").value = granjaCod.cod
-}*/
 
 function verLogForm(){
   document.getElementById("logForm").classList.remove("oculto");
@@ -104,9 +96,9 @@ async function chiste(){
   const elemTitulo=document.getElementById("tituloSite")
 
   elem1.classList.remove("oculto");
-  elem1.innerHTML = "<div class='imagenEspera'><img  src='" + imgEsperaUrl + "'></div> <br><br>"
+  elem1.innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
 
-  fetch(urlChiste)
+  fetch(GAS_CHISTES_URL)
     .then (response=>{ return response.text()})
     .then (data=>{
       elem1.innerHTML= "<div class='marco chiste'>" + data + "</div>";
@@ -123,19 +115,21 @@ function acercade(){
   elem1.innerHTML += "<div> Orientacion: "+ screen.orientation.type  +"</div>"
 }
 
-function cambiarTema() {
-  var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema")):10;
-  tema = tema < (temas.length-1) ? tema+1:0;
-  localStorage.setItem("tema",tema);
+function aplicarTema(incrementar) { 
+  var tema=parseInt(localStorage.getItem(APP+"tema"))||0;
+  if (incrementar) {
+    tema=tema+1
+  }
+  tema = tema < TEMAS.length && tema>=0  ? tema:0;
+  localStorage.setItem(APP+"tema",tema);
   const root = document.documentElement;
-  root.style.setProperty('--color-primario', temas[tema][0]);
-  root.style.setProperty('--color-secundario', temas[tema][1]);
-  root.style.setProperty('--color-acento',temas[tema][2]);
+  root.style.setProperty('--color-primario', TEMAS[tema][0]);
+  root.style.setProperty('--color-secundario', TEMAS[tema][1]);
+  root.style.setProperty('--color-acento',TEMAS[tema][2]);
 }
 
 const menuButton = document.querySelector('.menu-burger');
 const menu = document.querySelector('nav');
-
 function closeMenu(){ document.querySelector('nav').classList.remove('active')     }
 
 menuButton.addEventListener('click', () => {
@@ -150,8 +144,4 @@ document.addEventListener('click', (event) => {
 
 document.getElementById('verDatos').addEventListener('click', function() {
   cargarHTML('bloque');
-});
-
-document.getElementById('verGraf').addEventListener('click', function() {
-  cargarHTML('bloqueChart');
 });
