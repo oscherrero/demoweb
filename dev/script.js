@@ -7,7 +7,8 @@ const TEMAS=[
   [ "cyan", "cyan", "blue", "white"  ],
   [ "cyan", "cyan", "green", "white"  ],
 ]
-const APP=window.location.href.substring(0, window.location.href.lastIndexOf("/"))
+const PATH=window.location.href 
+const APP=PATH.substring(0, PATH.lastIndexOf("/"))
 
 const NUMTEMAS=TEMAS.length
 
