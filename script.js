@@ -7,10 +7,7 @@ const TEMAS=[
   [ "cyan", "cyan", "blue", "white"  ],
   [ "cyan", "cyan", "green", "white"  ],
 ]
-let PATH=window.location.href 
-if (PATH.endsWith("/")) { PATH = PATH.slice(0, -1) }
-const APP=PATH.substring(PATH.lastIndexOf("/")+1,99)
-const NUMTEMAS=TEMAS.length
+const APP=carpetaIndex()
 
 window.onload=init()
 
@@ -23,7 +20,7 @@ function init() {
 function cargarValoresForm(){
   let options =localStorage.getItem(APP+"options")
   let stSiteCod = localStorage.getItem(APP+"site") || '{"site":"","cod":""}';
-  let siteCod = JSON.parse(stSiteCod)
+  let siteCod = JSON.parse(localStorage.getItem(APP+"site")) || {site:"",cod:""}
   document.getElementById("site").innerHTML = options
   document.getElementById("site").value = siteCod.site
   document.getElementById("cod").value = siteCod.cod
@@ -122,6 +119,12 @@ function aplicarTema(incrementar) {
   root.style.setProperty('--color-primario', TEMAS[tema][0]);
   root.style.setProperty('--color-secundario', TEMAS[tema][1]);
   root.style.setProperty('--color-acento',TEMAS[tema][2]);
+}
+
+function carpetaIndex(){
+  let path =window.location.href 
+  if (path.endsWith("/")) { path = path.slice(0, -1) }
+  return path.substring(path.lastIndexOf("/")+1,99)
 }
 
 const menuButton = document.querySelector('.menu-burger');
