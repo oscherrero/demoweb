@@ -45,7 +45,7 @@ header  img{
 header .titulo {
   color: var(--color-blanco);
   font-family: "Arial";
-  font-size: 2rem;
+  font-size: clamp(1rem,2rem,2rem);
 
   display: flex;
   justify-content: center;
