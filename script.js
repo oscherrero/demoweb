@@ -20,7 +20,7 @@ function init() {
   cargarHTML()
 }
 
-function cargarValoresForm(options){
+function cargarValoresForm(){
   let options =localStorage.getItem(APP+"options")
   document.getElementById("site").innerHTML = options
   //let stGranjaCod = localStorage.getItem(APP+"site") != null ? localStorage.getItem(APP+"site") : '{"site":"","cod":""}';
