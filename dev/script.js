@@ -16,16 +16,10 @@ const NUMTEMAS=TEMAS.length
 window.onload=init()
 
 function init() {
-
   var options =localStorage.getItem(APP+"options")
-  
   cargarListaGranjas(options)
-
-  var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema"))-1:10;
-  localStorage.setItem(APP+"tema",tema)
   aplicarTema()
   cargarHTML('bloque' )
-     
 }
 
 function cargarListaGranjas(options){
@@ -120,16 +114,6 @@ function acercade(){
   elem1.innerHTML += "<div> Alto: "+ window.innerHeight; +"</div>"
   elem1.innerHTML += "<div> Resolucion: "+ window.devicePixelRatio  +"</div>"
   elem1.innerHTML += "<div> Orientacion: "+ screen.orientation.type  +"</div>"
-}
-
-function cambiarTema() {
-  var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema")):10;
-  tema = tema < (TEMAS.length-1) ? tema+1:0;
-  localStorage.setItem(APP+"tema",tema);
-  const root = document.documentElement;
-  root.style.setProperty('--color-primario', TEMAS[tema][0]);
-  root.style.setProperty('--color-secundario', TEMAS[tema][1]);
-  root.style.setProperty('--color-acento',TEMAS[tema][2]);
 }
 
 function aplicarTema(incrementar) { 
