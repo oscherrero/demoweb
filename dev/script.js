@@ -16,7 +16,7 @@ const NUMTEMAS=TEMAS.length
 window.onload=init()
 
 function init() {
-  var options =localStorage.getItem("options")
+  var options =localStorage.getItem(APP+"options")
   
   cargarListaGranjas(options)
 
@@ -80,7 +80,7 @@ async function cargarHTML(file) {
     
       var valor = JSON.stringify({ site: granjaInput, cod: codInput })
       localStorage.setItem('site', valor);
-      localStorage.setItem("options",resp.optionsHtml)
+      localStorage.setItem(APP+"options",resp.optionsHtml)
     }
   } catch (error) {
     document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
