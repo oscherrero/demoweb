@@ -30,9 +30,9 @@ function recargarWeb (){  location.href = location.href + "?" + new Date().getTi
 async function cargarHTML() {
    
   document.getElementById("logForm").classList.add("oculto");
-  document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
- 
+  document.getElementById("elemento1").classList.remove("oculto");
+
   try {
     const formData= new FormData(document.getElementById("logForm"))
     const response = await fetch(GAS_WEB_URL, {
@@ -69,10 +69,8 @@ async function cargarHTML() {
       localStorage.setItem(APP+"options",resp.optionsHtml)
     }
   } catch (error) {
-    document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
-    document.getElementById("elemento1").innerHTML = error
+    document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS: <br>"+ error +"<br> </div>"
     document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
-
   }  
 }
 
@@ -82,11 +80,11 @@ function verLogForm(){
 }
 
 async function chiste(){ 
-
-  document.getElementById("logForm").classList.add("oculto");
   const elem1 = document.getElementById("elemento1") 
+  const elemLogForm= document.getElementById("logForm")
   const elemTitulo=document.getElementById("tituloSite")
 
+  elemLogForm.classList.add("oculto");
   elem1.classList.remove("oculto");
   elem1.innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
 
@@ -109,9 +107,7 @@ function acercade(){
 
 function aplicarTema(incrementar) { 
   var tema=parseInt(localStorage.getItem(APP+"tema"))||0;
-  if (incrementar) {
-    tema=tema+1
-  }
+  if (incrementar) { tema=tema+1 }
   tema = tema < TEMAS.length && tema>=0  ? tema:0;
   localStorage.setItem(APP+"tema",tema);
   const root = document.documentElement;
@@ -119,6 +115,8 @@ function aplicarTema(incrementar) {
   root.style.setProperty('--color-secundario', TEMAS[tema][1]);
   root.style.setProperty('--color-acento',TEMAS[tema][2]);
 }
+
+function closeMenu() { document.querySelector('nav').classList.remove('active') }
 
 function carpetaIndex(){
   let path =window.location.href 
@@ -128,7 +126,6 @@ function carpetaIndex(){
 
 const menuButton = document.querySelector('.menu-burger');
 const menu = document.querySelector('nav');
-function closeMenu(){ document.querySelector('nav').classList.remove('active')     }
 
 menuButton.addEventListener('click', () => {
   menu.classList.toggle('active');
