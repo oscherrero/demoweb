@@ -39,9 +39,9 @@ function info() {
 
 async function cargarHTML() {
    
-  document.getElementById("logForm").classList.add("oculto");
-  document.getElementById("elemento1").classList.remove("oculto");
-  document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
+  //document.getElementById("logForm").classList.add("oculto");
+  //document.getElementById("elemento1").classList.remove("oculto");
+  //document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
  
   try {
     const formData= new FormData(document.getElementById("logForm"))
