@@ -12,7 +12,7 @@ if (PATH.endsWith("/")) {
   PATH = PATH.slice(0, -1);
 }
 
-const APP=PATH.substring(PATH.lastIndexOf("/"),99)
+const APP=PATH.substring(PATH.lastIndexOf("/")+1,99)
 
 const NUMTEMAS=TEMAS.length
 
