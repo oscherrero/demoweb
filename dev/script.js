@@ -17,8 +17,6 @@ window.onload=init()
 
 function init() {
 
-  var tema=localStorage.getItem(APP+"tema")||1;
-
   var options =localStorage.getItem(APP+"options")
   
   cargarListaGranjas(options)
@@ -134,18 +132,18 @@ function cambiarTema() {
   root.style.setProperty('--color-acento',TEMAS[tema][2]);
 }
 
-function aplicarTema() {
+function aplicarTema(inc) { 
   //var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema")):1;
-  var tema=localStorage.getItem(APP+"tema")||1;
-  
-  tema = tema < (TEMAS.length-1) ? tema+1:0;
+  var tema=localStorage.getItem(APP+"tema")||0;
+  if (inc) {
+    tema = tema < (TEMAS.length-1) ? tema:;
+  }
   localStorage.setItem(APP+"tema",tema);
   const root = document.documentElement;
   root.style.setProperty('--color-primario', TEMAS[tema][0]);
   root.style.setProperty('--color-secundario', TEMAS[tema][1]);
   root.style.setProperty('--color-acento',TEMAS[tema][2]);
 }
-
 const menuButton = document.querySelector('.menu-burger');
 const menu = document.querySelector('nav');
 
