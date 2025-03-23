@@ -8,7 +8,7 @@ const TEMAS=[
   [ "cyan", "cyan", "green", "white"  ],
 ]
 let PATH=window.location.href 
-if (PATH.endsWith("/")) {   PATH = PATH.slice(0, -1);}
+if (PATH.endsWith("/")) { PATH = PATH.slice(0, -1) }
 const APP=PATH.substring(PATH.lastIndexOf("/")+1,99)
 const NUMTEMAS=TEMAS.length
 
@@ -22,12 +22,11 @@ function init() {
 
 function cargarValoresForm(){
   let options =localStorage.getItem(APP+"options")
+  let stSiteCod = localStorage.getItem(APP+"site") || '{"site":"","cod":""}';
+  let siteCod = JSON.parse(stSiteCod)
   document.getElementById("site").innerHTML = options
-  //let stGranjaCod = localStorage.getItem(APP+"site") != null ? localStorage.getItem(APP+"site") : '{"site":"","cod":""}';
-  let stGranjaCod = localStorage.getItem(APP+"site") || '{"site":"","cod":""}';
-  let granjaCod = JSON.parse(stGranjaCod)
-  document.getElementById("site").value = granjaCod.site
-  document.getElementById("cod").value = granjaCod.cod
+  document.getElementById("site").value = siteCod.site
+  document.getElementById("cod").value = siteCod.cod
 }
    
 function recargarWeb (){  location.href = location.href + "?" + new Date().getTime();}
@@ -40,26 +39,22 @@ function info() {
 
 async function cargarHTML() {
    
-  document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("logForm").classList.add("oculto");
+  document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
  
   try {
-    
     const formData= new FormData(document.getElementById("logForm"))
-    const granjaInput= document.getElementById("site").value
-    const codInput= document.getElementById("cod").value
-
     const response = await fetch(GAS_WEB_URL, {
         method: 'POST',
         body: formData,
     })
 
-  var resp = await response.json()
-  localStorage.setItem(APP+"options", resp.optionsHtml)
-  cargarValoresForm()
+    var resp = await response.json()
+    localStorage.setItem(APP+"options", resp.optionsHtml)
+    cargarValoresForm()
 
-  if (resp.html == "NoAuth" ) {
+    if (resp.html == "NoAuth" ) {
       document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS <br></div>"
       document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
       document.getElementById("cod").value =""
@@ -73,7 +68,9 @@ async function cargarHTML() {
       document.getElementById("tituloSite").innerHTML =  granjaInput.toUpperCase() 
       document.getElementById("logForm").classList.add("oculto");
     
-      var valor = JSON.stringify({ site: granjaInput, cod: codInput })
+      const siteInput= document.getElementById("site").value
+      const codInput= document.getElementById("cod").value
+      const valor = JSON.stringify({ site: siteInput, cod: codInput })
       localStorage.setItem(APP+'site', valor);
       localStorage.setItem(APP+"options",resp.optionsHtml)
     }
