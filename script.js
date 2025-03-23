@@ -19,7 +19,6 @@ function init() {
 
 function cargarValoresForm(){
   let listaOpcionesHtml =localStorage.getItem(APP+"options")
-  let stSiteCod = localStorage.getItem(APP+"site") || '{"site":"","cod":""}';
   let siteCod = JSON.parse(localStorage.getItem(APP+"site")) || {site:"",cod:""}
   document.getElementById("site").innerHTML = listaOpcionesHtml
   document.getElementById("site").value = siteCod.site
