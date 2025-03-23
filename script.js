@@ -39,9 +39,9 @@ function info() {
 
 async function cargarHTML() {
    
-  //document.getElementById("logForm").classList.add("oculto");
-  //document.getElementById("elemento1").classList.remove("oculto");
-  //document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
+  document.getElementById("logForm").classList.add("oculto");
+  document.getElementById("elemento1").classList.remove("oculto");
+  document.getElementById("elemento1").innerHTML = "<div class='imagenEspera'><img  src='" + IMG_ESPERA_URL + "'></div> <br><br>"
  
   try {
     const formData= new FormData(document.getElementById("logForm"))
@@ -49,10 +49,14 @@ async function cargarHTML() {
         method: 'POST',
         body: formData,
     })
-
     var resp = await response.json()
+
+    const siteInput= document.getElementById("site").value
+    const codInput= document.getElementById("cod").value
+
     localStorage.setItem(APP+"options", resp.optionsHtml)
     document.getElementById("site").innerHTML = resp.optionsHtml
+    document.getElementById("site").value =siteInput
 
     if (resp.html == "NoAuth" ) {
       document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS <br></div>"
@@ -64,8 +68,7 @@ async function cargarHTML() {
       document.getElementById("cod").value =""
       verLogForm()
     } else {     
-      const siteInput= document.getElementById("site").value
-      const codInput= document.getElementById("cod").value
+
       const valor = JSON.stringify({ site: siteInput, cod: codInput })
 
       document.getElementById("elemento1").innerHTML = resp.html
