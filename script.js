@@ -38,7 +38,7 @@ function info() {
   document.getElementById("nota").textContent = " width: " + anchoPantalla + ", res: " + resPantalla;
 }
 
-async function cargarHTML(file) {
+async function cargarHTML() {
    
   document.getElementById("elemento1").classList.remove("oculto");
   document.getElementById("logForm").classList.add("oculto");
@@ -50,7 +50,6 @@ async function cargarHTML(file) {
     const granjaInput= document.getElementById("site").value
     const codInput= document.getElementById("cod").value
 
-    //var url = webUrl + "?file="+file;
     const response = await fetch(GAS_WEB_URL, {
         method: 'POST',
         body: formData,
@@ -143,6 +142,3 @@ document.addEventListener('click', (event) => {
   };
 });
 
-document.getElementById('verDatos').addEventListener('click', function() {
-  cargarHTML('bloque');
-});
