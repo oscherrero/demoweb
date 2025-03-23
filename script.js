@@ -1,5 +1,5 @@
-
 const GAS_WEB_URL= "https://script.google.com/macros/s/AKfycbwFh4fhZPolS9zN0uGwCouteG9PcSjLkJqRdyABj3XZ-6A5b5LEic9QIb_BebPoUBXnPA/exec"   
+
 const IMG_ESPERA_URL="SimboloEspera.gif"
 const GAS_CHISTES_URL="https://script.google.com/macros/s/AKfycbxtGofgvSOkwx7T7pwzHrzXA59swnf8DAY_2xNrySYdDFaHTds_8jOVtX1HS1tiEcoM/exec"
 const TEMAS=[ 
@@ -138,5 +138,5 @@ document.addEventListener('click', (event) => {
 });
 
 document.getElementById('verDatos').addEventListener('click', function() {
-  cargarHTML('bloque');
+  cargarHTML();
 });
