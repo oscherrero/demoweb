@@ -29,7 +29,7 @@ function init() {
 
 function cargarListaGranjas(options){
   document.getElementById("site").innerHTML = options
-  var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
+  var stGranjaCod = localStorage.getItem(APP+"site") != null ? localStorage.getItem(APP+"site") : '{"site":"","cod":""}';
   var granjaCod = JSON.parse(stGranjaCod)
   document.getElementById("site").value = granjaCod.site
   document.getElementById("cod").value = granjaCod.cod
