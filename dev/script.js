@@ -133,7 +133,7 @@ function cambiarTema() {
 }
 
 function aplicarTema(incrementar) { 
-  var tema=localStorage.getItem(APP+"tema")||0;
+  var tema=parseInt(localStorage.getItem(APP+"tema"))||0;
   if (incrementar) {
     tema=tema+1
   }
