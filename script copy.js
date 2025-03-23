@@ -15,17 +15,16 @@ const NUMTEMAS=TEMAS.length
 window.onload=init()
 
 function init() {
-  cargarValoresForm()
+  var options =localStorage.getItem(APP+"options")
+  cargarListaGranjas(options)
   aplicarTema()
-  cargarHTML()
+  cargarHTML('bloque' )
 }
 
-function cargarValoresForm(options){
-  let options =localStorage.getItem(APP+"options")
+function cargarListaGranjas(options){
   document.getElementById("site").innerHTML = options
-  //let stGranjaCod = localStorage.getItem(APP+"site") != null ? localStorage.getItem(APP+"site") : '{"site":"","cod":""}';
-  let stGranjaCod = localStorage.getItem(APP+"site") || '{"site":"","cod":""}';
-  let granjaCod = JSON.parse(stGranjaCod)
+  var stGranjaCod = localStorage.getItem(APP+"site") != null ? localStorage.getItem(APP+"site") : '{"site":"","cod":""}';
+  var granjaCod = JSON.parse(stGranjaCod)
   document.getElementById("site").value = granjaCod.site
   document.getElementById("cod").value = granjaCod.cod
 }
