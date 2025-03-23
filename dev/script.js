@@ -20,8 +20,8 @@ function init() {
   
   cargarListaGranjas(options)
 
-  var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema"))-1:10;
-  localStorage.setItem("tema",tema)
+  var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema"))-1:10;
+  localStorage.setItem(APP+"tema",tema)
   cambiarTema()
   cargarHTML('bloque' )
      
@@ -129,9 +129,9 @@ function acercade(){
 }
 
 function cambiarTema() {
-  var tema=localStorage.getItem("tema")!=null?parseInt(localStorage.getItem("tema")):10;
+  var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema")):10;
   tema = tema < (TEMAS.length-1) ? tema+1:0;
-  localStorage.setItem("tema",tema);
+  localStorage.setItem(APP+"tema",tema);
   const root = document.documentElement;
   root.style.setProperty('--color-primario', TEMAS[tema][0]);
   root.style.setProperty('--color-secundario', TEMAS[tema][1]);
