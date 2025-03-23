@@ -162,7 +162,3 @@ document.addEventListener('click', (event) => {
 document.getElementById('verDatos').addEventListener('click', function() {
   cargarHTML('bloque');
 });
-
-document.getElementById('verGraf').addEventListener('click', function() {
-  cargarHTML('bloqueChart');
-});
