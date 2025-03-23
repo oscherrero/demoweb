@@ -7,7 +7,7 @@ const TEMAS=[
   [ "cyan", "cyan", "blue", "white"  ],
   [ "cyan", "cyan", "green", "white"  ],
 ]
-const PATH=window.location.href 
+let PATH=window.location.href 
 if (PATH.endsWith("/")) {
   PATH = PATH.slice(0, -1);
 }
