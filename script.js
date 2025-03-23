@@ -18,10 +18,10 @@ function init() {
 }
 
 function cargarValoresForm(){
-  let options =localStorage.getItem(APP+"options")
+  let listaOpcionesHtml =localStorage.getItem(APP+"options")
   let stSiteCod = localStorage.getItem(APP+"site") || '{"site":"","cod":""}';
   let siteCod = JSON.parse(localStorage.getItem(APP+"site")) || {site:"",cod:""}
-  document.getElementById("site").innerHTML = options
+  document.getElementById("site").innerHTML = listaOpcionesHtml
   document.getElementById("site").value = siteCod.site
   document.getElementById("cod").value = siteCod.cod
 }
