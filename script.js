@@ -1,6 +1,6 @@
 
 const GAS_WEB_URL= "https://script.google.com/macros/s/AKfycbwFh4fhZPolS9zN0uGwCouteG9PcSjLkJqRdyABj3XZ-6A5b5LEic9QIb_BebPoUBXnPA/exec"   
-const IMG_ESPERA_URL="/demoweb/SimboloEspera.gif"
+const IMG_ESPERA_URL="SimboloEspera.gif"
 const GAS_CHISTES_URL="https://script.google.com/macros/s/AKfycbxtGofgvSOkwx7T7pwzHrzXA59swnf8DAY_2xNrySYdDFaHTds_8jOVtX1HS1tiEcoM/exec"
 const TEMAS=[ 
   [ "#f8f4ff", "pink", "#CC0000", "white"  ],  //  1ario, 2ario, acento, blanco
@@ -19,7 +19,7 @@ function init() {
 
 function cargarValoresForm(){
   let listaOpcionesHtml =localStorage.getItem(APP+"options")
-  let siteCod = JSON.parse(localStorage.getItem(APP+"site")) // || {site:"",cod:""}
+  let siteCod = JSON.parse(localStorage.getItem(APP+"site"))  || {site:"",cod:""}
   document.getElementById("site").innerHTML = listaOpcionesHtml
   document.getElementById("site").value = siteCod.site
   document.getElementById("cod").value = siteCod.cod
