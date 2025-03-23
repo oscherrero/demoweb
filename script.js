@@ -64,13 +64,14 @@ async function cargarHTML() {
       document.getElementById("cod").value =""
       verLogForm()
     } else {     
-      document.getElementById("elemento1").innerHTML = resp.html
-      document.getElementById("tituloSite").innerHTML =  granjaInput.toUpperCase() 
-      document.getElementById("logForm").classList.add("oculto");
-    
       const siteInput= document.getElementById("site").value
       const codInput= document.getElementById("cod").value
       const valor = JSON.stringify({ site: siteInput, cod: codInput })
+
+      document.getElementById("elemento1").innerHTML = resp.html
+      document.getElementById("tituloSite").innerHTML =  siteInput.toUpperCase() 
+      document.getElementById("logForm").classList.add("oculto");
+
       localStorage.setItem(APP+'site', valor);
       localStorage.setItem(APP+"options",resp.optionsHtml)
     }
