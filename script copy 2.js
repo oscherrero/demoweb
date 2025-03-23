@@ -31,6 +31,12 @@ function cargarValoresForm(){
    
 function recargarWeb (){  location.href = location.href + "?" + new Date().getTime();}
 
+function info() {
+  const anchoPantalla = window.innerWidth;
+  const resPantalla = window.devicePixelRatio
+  document.getElementById("nota").textContent = " width: " + anchoPantalla + ", res: " + resPantalla;
+}
+
 async function cargarHTML() {
    
   document.getElementById("logForm").classList.add("oculto");
