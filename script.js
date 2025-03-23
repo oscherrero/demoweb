@@ -143,3 +143,6 @@ document.addEventListener('click', (event) => {
   };
 });
 
+document.getElementById('verDatos').addEventListener('click', function() {
+  cargarHTML('bloque');
+});
