@@ -16,6 +16,9 @@ const NUMTEMAS=TEMAS.length
 window.onload=init()
 
 function init() {
+
+  var tema=localStorage.getItem(APP+"tema")||1;
+
   var options =localStorage.getItem(APP+"options")
   
   cargarListaGranjas(options)
@@ -89,13 +92,6 @@ async function cargarHTML(file) {
 
   }  
 }
-/*
-function recuperarListaGranjas(){
-  var stGranjaCod = localStorage.getItem("site") != null ? localStorage.getItem("site") : '{"site":"","cod":""}';
-  var granjaCod = JSON.parse(stGranjaCod)
-  document.getElementById("site").value = granjaCod.site
-  document.getElementById("cod").value = granjaCod.cod
-}*/
 
 function verLogForm(){
   document.getElementById("logForm").classList.remove("oculto");
@@ -130,6 +126,18 @@ function acercade(){
 
 function cambiarTema() {
   var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema")):10;
+  tema = tema < (TEMAS.length-1) ? tema+1:0;
+  localStorage.setItem(APP+"tema",tema);
+  const root = document.documentElement;
+  root.style.setProperty('--color-primario', TEMAS[tema][0]);
+  root.style.setProperty('--color-secundario', TEMAS[tema][1]);
+  root.style.setProperty('--color-acento',TEMAS[tema][2]);
+}
+
+function aplicarTema() {
+  //var tema=localStorage.getItem(APP+"tema")!=null?parseInt(localStorage.getItem(APP+"tema")):1;
+  var tema=localStorage.getItem(APP+"tema")||1;
+  
   tema = tema < (TEMAS.length-1) ? tema+1:0;
   localStorage.setItem(APP+"tema",tema);
   const root = document.documentElement;
