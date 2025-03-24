@@ -15,8 +15,12 @@ function init() {
   cargarValoresForm()
   aplicarTema()
   cargarHTML()
+  actualizarFooter()
 }
-
+function actualizarFooter(){
+  const pie=document.getElementById("notapie")
+  pie.textContent+=" /"+APP
+}
 function cargarValoresForm(){
   let listaOpcionesHtml =localStorage.getItem(APP+"options")
   let siteCod = JSON.parse(localStorage.getItem(APP+"site"))  || {site:"",cod:""}
