@@ -58,24 +58,24 @@ async function cargarHTML(file) {
   var resp = await response.json()
   cargarListaGranjas(resp.optionsHtml)
 
-  if (resp.html == "NoAuth" ) {
+  if (!resp.auth ) {
       document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> INDICA UNA GRANJA Y CLAVE VALIDOS <br></div>"
       document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
-      document.getElementById("cod").value =""
       document.getElementById("logForm").classList.remove("oculto");
     } else   if ( resp.html == "") {
       document.getElementById("tituloSite").innerHTML = "DEMO API INSIGHT";
-      document.getElementById("cod").value =""
+
       verLogForm()
     } else {     
       document.getElementById("elemento1").innerHTML = resp.html
       document.getElementById("tituloSite").innerHTML =  granjaInput.toUpperCase() 
       document.getElementById("logForm").classList.add("oculto");
-    
       var valor = JSON.stringify({ site: granjaInput, cod: codInput })
       localStorage.setItem(APP+'site', valor);
       localStorage.setItem(APP+"options",resp.optionsHtml)
     }
+    document.getElementById("cod").value =""
+    document.getElementById("site").value =""
   } catch (error) {
     document.getElementById("elemento1").innerHTML = "<div style='color:red; text-align:center;'><br> FALLO EN LA CONSULTA DE DATOS </div>"
     document.getElementById("elemento1").innerHTML = error
